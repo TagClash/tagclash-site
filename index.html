@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,25 +16,37 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
       backdrop-filter: brightness(0.85);
     }
 
+    .container {
+      padding: 40px 20px;
+      max-width: 800px;
+    }
+
     h1 {
-      font-size: 3rem;
-      font-weight: bold;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
       text-shadow: 0 0 10px #000;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin-top: 0;
       margin-bottom: 2rem;
       color: #cccccc;
       text-shadow: 0 0 8px #000;
+    }
+
+    .intro {
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      color: #ddd;
+      text-shadow: 0 0 5px #000;
     }
 
     .buttons {
@@ -42,8 +55,9 @@
       gap: 1rem;
       justify-content: center;
       align-items: center;
-      width: 90%;
+      width: 100%;
       max-width: 400px;
+      margin-top: 20px;
     }
 
     .btn {
@@ -67,17 +81,30 @@
   </style>
 </head>
 <body>
-  <h1>TagClash</h1>
-  <h2>Coming Soon</h2>
+  <div class="container">
+    <h1>Welcome to TagClash</h1>
+    <h2>A universe built for players who love strategy, thrill, and creatures with soul.</h2>
 
-  <div class="buttons">
-    <a class="btn" href="https://www.youtube.com/@TagClash" target="_blank">YouTube</a>
-    <a class="btn" href="https://x.com/TagClashX" target="_blank">X (Twitter)</a>
-    <a class="btn" href="https://arena.social/TagClashX" target="_blank">Arena</a>
-    <a class="btn" href="https://www.tiktok.com/@tagclash" target="_blank">TikTok</a>
-    <a class="btn" href="https://www.instagram.com/tagclash_/" target="_blank">Instagram</a>
-    <a class="btn" href="https://discord.gg/bHbKKDYK" target="_blank">Discord</a>
-    <a class="btn" href="mailto:tagclashx@gmail.com">Email Us</a>
+    <div class="intro">
+      We’re building two interconnected games. First, a collectible trading card game (TCG) for PC, mobile, and Web3 platforms, where players collect, trade, and compete with uniquely designed monsters.<br><br>
+
+      But the heart of TagClash lies in its second title — a competitive, high-stakes monster-tagging arena experience.<br><br>
+
+      In this game, the action begins before the fight. Each match opens in the wild, where you have limited time to scout and tag creatures hiding in their natural habitats. Some are passive, others will charge if they sense you. Tagging is tense, fast, and tactical: one wrong move and you might not make it out. But whatever you successfully tag before time runs out is instantly teleported with you into the arena, where survival depends on what you brought with you.<br><br>
+
+      Every decision counts.<br>
+      In TagClash, only the sharpest taggers rise.
+    </div>
+
+    <div class="buttons">
+      <a class="btn" href="https://www.youtube.com/@TagClash" target="_blank">YouTube</a>
+      <a class="btn" href="https://x.com/TagClashX" target="_blank">X (Twitter)</a>
+      <a class="btn" href="https://arena.social/TagClashX" target="_blank">Arena</a>
+      <a class="btn" href="https://www.tiktok.com/@tagclash" target="_blank">TikTok</a>
+      <a class="btn" href="https://www.instagram.com/tagclash_/" target="_blank">Instagram</a>
+      <a class="btn" href="https://discord.gg/bHbKKDYK" target="_blank">Discord</a>
+      <a class="btn" href="mailto:tagclashx@gmail.com">Email Us</a>
+    </div>
   </div>
 </body>
 </html>
