@@ -1,13 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>MonsterList</title>
+    <title>TagClash</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/App.jsx"></script>
+  <body class="bg-zinc-900 text-white font-sans">
+    <nav class="bg-zinc-800 p-4 flex justify-between">
+      <h1 class="text-2xl font-bold">TagClash</h1>
+      <div class="space-x-4">
+        <a href="index.html" class="text-white hover:underline">Home</a>
+        <a href="TagClass_MonsterList.html" class="text-white hover:underline">Monster List</a>
+      </div>
+    </nav>
+
+    <main class="p-6 max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4 mt-8">Welcome to TagClash</h2>
+      <video class="w-full max-w-3xl mx-auto mt-6 rounded shadow" controls>
+        <source src="intro.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="mt-10 space-x-4">
+        <a href="https://twitter.com" class="text-blue-400 hover:underline">Twitter</a>
+        <a href="https://instagram.com" class="text-pink-400 hover:underline">Instagram</a>
+        <a href="https://discord.gg" class="text-purple-400 hover:underline">Discord</a>
+      </div>
+    </main>
   </body>
 </html>
