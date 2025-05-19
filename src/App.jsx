@@ -35,7 +35,7 @@ const monsters = [
   image: `/images/${name.replace(/\s+/g, "").toLowerCase()}.png`
 }));
 
-export default function MonsterDex() {
+export default function MonsterList() {
   const [search, setSearch] = useState("");
 
   const filtered = monsters.filter((m) =>
@@ -44,7 +44,7 @@ export default function MonsterDex() {
 
   return (
     <div className="p-6 max-w-5xl mx-auto bg-zinc-900 min-h-screen text-white">
-      <h1 className="text-3xl font-bold mb-4 text-center">MonsterDex</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center">MonsterList</h1>
       <Input
         placeholder="Search monsters..."
         value={search}
