@@ -1,37 +1,115 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Monster List</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<style>
-    body { background-color: white; color: black; font-family: 'Sedgwick Ave Display', cursive; font-weight: normal; font-size: 1.1rem; }
-    .card:hover { transform: scale(1.05); transition: all 0.2s ease-in-out; }
+  <meta charset="UTF-8" />
+  <title>Monster List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: 'Sedgwick Ave Display', cursive;
+      font-weight: normal;
+      font-size: 1.1rem;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      position: relative;
+      margin: 5% auto;
+      padding: 0;
+      width: 90%;
+      max-width: 600px;
+    }
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
-<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&amp;display=swap" rel="stylesheet"/></head>
-<body class="p-6 max-w-5xl mx-auto min-h-screen"><div style="text-align: center; margin-bottom: 2rem;"><a href="index.html"><img alt="TagClash" src="logo.png" style="height: 80px;"/></a></div>
-<h1 class="text-3xl font-bold mb-4 text-center">Monster List</h1>
-<input class="mb-6 w-full p-2 rounded bg-zinc-100 border border-zinc-300" id="search" placeholder="Search monsters..."/>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="grid"></div>
-<script type="module">
-    const monsterNames = ['Canopu', 'Chull', 'Dapurr', 'Dedrino', 'Dedrinold', 'Diamachos', 'Ditsa', 'Duskrox', 'Emberoar', 'Figon', 'Fikas', 'Floritsa', 'Gelos', 'Himer', 'Ive', 'Kritos', 'Laka', 'Lykoron', 'Monas', 'Nenen', 'Pop', 'Rito', 'Samisa', 'Snaime', 'Tascodi', 'Tsiki', 'Waton'];
+</head>
+<body class="p-6 max-w-5xl mx-auto min-h-screen">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <a href="index.html">
+      <img src="logo.png" alt="TagClash" style="height: 80px;" />
+    </a>
+  </div>
 
+  <h1 class="text-3xl font-bold mb-4 text-center">Monster List</h1>
+  <input
+    placeholder="Search monsters..."
+    id="search"
+    class="mb-6 w-full p-2 rounded bg-zinc-100 border border-zinc-300"
+  />
+  <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+  <!-- Modal -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <video id="monsterVideo" width="100%" controls>
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script type="module">
+    const monsterNames = ['Canopu', 'Chull', 'Dapurr', 'Dedrino', 'Dedrinold', 'Diamachos', 'Ditsa', 'Duskrox', 'Emberoar', 'Figon', 'Fikas', 'Floritsa', 'Gelos', 'Himer', 'Ive', 'Kritos', 'Laka', 'Lykoron', 'Monas', 'Nenen', 'Pop', 'Rito', 'Samisa', 'Snaime', 'Tascodi', 'Tsiki', 'Waton'];
     const container = document.getElementById("grid");
     const search = document.getElementById("search");
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("monsterVideo");
+    const videoSource = document.getElementById("videoSource");
 
     function render(monsters) {
       container.innerHTML = "";
       monsters.forEach(name => {
         const div = document.createElement("div");
-        div.className = "card bg-zinc-100 p-4 text-center rounded shadow";
+        div.className = "card bg-zinc-100 p-4 text-center rounded shadow cursor-pointer";
         div.innerHTML = `
           <img src="images/${name}.png" alt="${name}" class="w-32 h-32 object-contain mx-auto mb-2" />
           <h2 class="text-xl font-semibold">${name}</h2>
         `;
+        div.onclick = () => {
+          if (name === "Pop") {
+            videoSource.src = "videos/Pop.mp4";
+            video.load();
+            modal.style.display = "block";
+          }
+        };
         container.appendChild(div);
       });
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      video.pause();
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
     }
 
     render(monsterNames);
