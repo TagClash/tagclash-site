@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Monster List</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<title>Character List</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<style>
     body {
       background-color: white;
       color: black;
-      font-family: 'Sedgwick Ave Display', cursive;
+      font-family: 'Poppins', sans-serif;
       font-weight: normal;
       font-size: 1.1rem;
     }
@@ -45,35 +46,29 @@
       font-weight: bold;
       cursor: pointer;
     }
-  </style>
-</head>
+  
+img[alt='TagClash'] { height: 180px !important; }</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/></head>
 <body class="p-6 max-w-5xl mx-auto min-h-screen">
-  <div style="text-align: center; margin-bottom: 2rem;">
-    <a href="index.html">
-      <img src="logo.png" alt="TagClash" style="height: 80px;" />
-    </a>
-  </div>
-
-  <h1 class="text-3xl font-bold mb-4 text-center">Monster List</h1>
-  <input
-    placeholder="Search monsters..."
-    id="search"
-    class="mb-6 w-full p-2 rounded bg-zinc-100 border border-zinc-300"
-  />
-  <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
-
-  <!-- Modal -->
-  <div id="videoModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <video id="monsterVideo" width="100%" controls>
-        <source id="videoSource" src="" type="video/mp4">
+<div style="text-align: center; margin-bottom: 2rem;">
+<a href="index.html">
+<img alt="TagClash" src="logo.png" style="height: 80px;"/>
+</a>
+</div>
+<h1 class="text-3xl font-bold mb-4 text-center">Character List</h1>
+<input class="mb-6 w-full p-2 rounded bg-zinc-100 border border-zinc-300" id="search" placeholder="Search characters..."/>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="grid"></div>
+<!-- Modal -->
+<div class="modal" id="videoModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<video controls="" id="monsterVideo" width="100%">
+<source id="videoSource" src="" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
-    </div>
-  </div>
-
-  <script type="module">
+</div>
+</div>
+<script type="module">
     const monsterNames = ['Canopu', 'Chull', 'Dapurr', 'Dedrino', 'Dedrinold', 'Diamachos', 'Ditsa', 'Duskrox', 'Emberoar', 'Figon', 'Fikas', 'Floritsa', 'Gelos', 'Himer', 'Ive', 'Kritos', 'Laka', 'Lykoron', 'Matia', 'Monas', 'Nenen', 'Pop', 'Rito', 'Samisa', 'Snaime', 'Tascodi', 'Tsiki', 'Waton'];
     const container = document.getElementById("grid");
     const search = document.getElementById("search");
